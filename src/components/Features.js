@@ -2,16 +2,15 @@ import { Card, Col, Row } from "antd";
 import Image from "next/image";
 import {
   ArrowRightOutlined,
-  CalendarOutlined,
-  CommentOutlined,
-  ProfileOutlined,
+  StockOutlined,
+  AppstoreAddOutlined,
+  DollarOutlined,
+  StarOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 
 const Features = ({ products }) => {
   console.log(products, "from feature");
-  //   const { productName, price, category, status, personalRating, image } =
-  //     products;
   const { Meta } = Card;
   return (
     <>
@@ -68,20 +67,17 @@ const Features = ({ products }) => {
                 }}
               >
                 <span>
-                  <CalendarOutlined /> {product?.release_date}
+                  <StockOutlined /> {product?.status}
                 </span>
                 <span>
-                  <CommentOutlined /> {product?.price} $usd
+                  <DollarOutlined /> {product?.price} $
                 </span>
                 <span>
-                  <ProfileOutlined /> {product?.category}
+                  <AppstoreAddOutlined /> {product?.category}
                 </span>
               </p>
-
-              <p style={{ fontSize: "15px" }}>
-                {product?.description.length > 100
-                  ? product?.description.slice(0, 70) + "..."
-                  : product?.description}
+              <p style={{ display: "block" }}>
+                <StarOutlined /> {product?.personalRating}
               </p>
               <Link href={`/product/${product?.id}`}>
                 <p
@@ -97,7 +93,7 @@ const Features = ({ products }) => {
                     textAlign: "center",
                   }}
                 >
-                  Keep Reading <ArrowRightOutlined />
+                  Show Details <ArrowRightOutlined />
                 </p>
               </Link>
             </Card>
