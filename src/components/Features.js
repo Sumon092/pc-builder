@@ -10,7 +10,6 @@ import {
 import Link from "next/link";
 
 const Features = ({ products }) => {
-  console.log(products, "from feature");
   const { Meta } = Card;
   return (
     <>
@@ -79,7 +78,7 @@ const Features = ({ products }) => {
               <p style={{ display: "block" }}>
                 <StarOutlined /> {product?.personalRating}
               </p>
-              <Link href={`/product/${product?.id}`}>
+              <Link href={`/product/${product?._id}`}>
                 <p
                   style={{
                     fontSize: "15px",
