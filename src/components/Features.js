@@ -38,7 +38,7 @@ const Features = ({ products }) => {
               hoverable
               cover={
                 <Image
-                  //   src={product?.image}
+                  src={product?.image}
                   width={500}
                   height={200}
                   responsive
