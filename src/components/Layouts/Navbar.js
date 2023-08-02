@@ -21,7 +21,7 @@ const Navbar = () => {
             fontSize: "25px",
           }}
         >
-          PC BUILDER
+          PC Relations
         </Link>
       </div>
       <Menu
@@ -36,9 +36,9 @@ const Navbar = () => {
       >
         <Link
           style={{ textDecoration: "none", color: "white" }}
-          href="/profile"
+          href="/pc-builder"
         >
-          <items>Profile</items>
+          <items>PC Builder</items>
         </Link>
         {session?.user ? (
           <items>

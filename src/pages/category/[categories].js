@@ -1,4 +1,6 @@
 import Category from "@/components/Category";
+import { Button } from "antd";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const CategoryPage = ({ product }) => {
@@ -7,7 +9,14 @@ const CategoryPage = ({ product }) => {
   const filteredCategory = product.filter((p) => p.category === categories);
   return (
     <div>
-      <h3>Category: {categories}</h3>
+      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
+        Category: {categories}
+      </h2>
+      <div style={{ textAlign: "center", margin: "20px 0px" }}>
+        <Link href="/">
+          <Button type="primary">Go Back To Categories</Button>
+        </Link>
+      </div>
       <Category filteredCategory={filteredCategory}></Category>
     </div>
   );

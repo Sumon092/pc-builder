@@ -6,8 +6,15 @@ const Categories = ({ products }) => {
   return (
     <>
       <div
-        style={{ border: "1px solid gray", padding: "8px", marginTop: "10px" }}
+        style={{
+          border: "1px solid black",
+          padding: "10px",
+          marginTop: "10px",
+        }}
       >
+        <span style={{ marginRight: "20px", fontSize: "20px" }}>
+          Featured Products:
+        </span>
         {products.map((category) => (
           <Link key={category._id} href={`/category/${category.category}`}>
             <Button type="primary" style={{ marginRight: "10px" }}>
@@ -16,17 +23,6 @@ const Categories = ({ products }) => {
           </Link>
         ))}
       </div>
-      {/* <div
-        style={{ border: "1px solid gray", padding: "8px", marginTop: "10px" }}
-      >
-        {products.map((category) => (
-          <Link key={category._id} href={`/category/${category.category}`}>
-            <Button type="primary" style={{ marginRight: "10px" }}>
-              {category?.category}
-            </Button>
-          </Link>
-        ))}
-      </div> */}
     </>
   );
 };

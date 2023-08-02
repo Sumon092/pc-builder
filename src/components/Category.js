@@ -22,7 +22,12 @@ const Category = ({ filteredCategory }) => {
         }}
       >
         {filteredCategory?.map((product) => (
-          <Col key={product?._id} className="gutter-row" span={6}>
+          <Col
+            style={{ marginBottom: "25px" }}
+            key={product?._id}
+            className="gutter-row"
+            span={6}
+          >
             <Card
               hoverable
               cover={

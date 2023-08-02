@@ -16,7 +16,9 @@ export default function App({
     <>
       <SessionProvider session={session}>
         <Navbar />
-        <Component {...pageProps} />
+        <div style={{ padding: "24px" }}>
+          <Component {...pageProps} />
+        </div>
       </SessionProvider>
     </>
   );
