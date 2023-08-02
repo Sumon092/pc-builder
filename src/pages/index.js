@@ -1,12 +1,21 @@
+import Categories from "@/components/Categories";
 import Features from "@/components/Features";
 import React from "react";
 
 const HomePage = ({ products }) => {
   const product = products?.map((category) => category.products[0]);
   return (
-    <div>
-      <Features key={product._id} products={product}></Features>
-    </div>
+    <>
+      <Categories
+        key={product._id}
+        products={product}
+        categories={products}
+      ></Categories>
+      <Features 
+        key={product._id} 
+        products={product}
+      ></Features>
+    </>
   );
 };
 

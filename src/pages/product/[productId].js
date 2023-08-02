@@ -84,16 +84,30 @@ const ProductDetail = ({ product }) => {
 };
 
 export default ProductDetail;
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
     `http://localhost:5000/api/v1/products/${params.productId}`
   );
   const data = await res.json();
   console.log(data, "from dynamic route");
+
   return {
     props: {
       product: data,
     },
+    revalidate: 60 * 60,
+  };
+};
+
+export const getStaticPaths = async () => {
+  const res = await fetch(`http://localhost:5000/api/v1/products`);
+  const data = await res.json();
+  const paths = data.map((product) => ({
+    params: { productId: product._id.toString() },
+  }));
+  return {
+    paths,
+    fallback: "blocking",
   };
 };

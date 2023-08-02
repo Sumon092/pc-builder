@@ -9,19 +9,10 @@ import {
 } from "@ant-design/icons";
 import Link from "next/link";
 
-const Features = ({ products }) => {
+const Category = ({ filteredCategory }) => {
   const { Meta } = Card;
   return (
     <>
-      <h2
-        style={{
-          textAlign: "center",
-          fontSize: "40px",
-          margin: "30px 0px",
-        }}
-      >
-        Explore Products
-      </h2>
       <Row
         gutter={{
           xs: 8,
@@ -30,7 +21,7 @@ const Features = ({ products }) => {
           lg: 32,
         }}
       >
-        {products?.map((product) => (
+        {filteredCategory?.map((product) => (
           <Col key={product?._id} className="gutter-row" span={6}>
             <Card
               hoverable
@@ -103,4 +94,4 @@ const Features = ({ products }) => {
   );
 };
 
-export default Features;
+export default Category;
