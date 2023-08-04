@@ -2,6 +2,8 @@ import { Layout, Menu, Button } from "antd";
 const { Header } = Layout;
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
+import CategoryDropdown from "../DropdownCategory";
+import DropdownCategory from "../DropdownCategory";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -12,17 +14,25 @@ const Navbar = () => {
         justifyContent: "space-between",
       }}
     >
-      <div className="demo-logo">
+      <div style={{ marginRight: "20px" }} className="demo-logo">
         <Link
           href="/"
           style={{
             textDecoration: "none",
+            fontSize: "20px",
             color: "white",
-            fontSize: "25px",
+            fontWeight: "bold",
           }}
         >
-          PC Relations
+          PC RELATIONS
         </Link>
+        <span
+          style={{
+            marginLeft: "20px",
+          }}
+        >
+          <DropdownCategory />
+        </span>
       </div>
       <Menu
         theme="dark"
@@ -35,23 +45,40 @@ const Navbar = () => {
         }}
       >
         <Link
-          style={{ textDecoration: "none", color: "white" }}
+          style={{
+            textDecoration: "none",
+            fontSize: "20px",
+            color: "white",
+            fontWeight: "bold",
+          }}
           href="/pc-builder"
         >
-          <items>PC Builder</items>
+          <items>PC BUILDER</items>
         </Link>
         {session?.user ? (
-          <items>
+          <items
+            style={{
+              textDecoration: "none",
+              fontSize: "20px",
+              color: "white",
+              fontWeight: "bold",
+            }}
+          >
             <Button onClick={() => signOut()} type="primary" danger>
               Logout
             </Button>
           </items>
         ) : (
           <Link
-            style={{ textDecoration: "none", color: "white" }}
+            style={{
+              textDecoration: "none",
+              fontSize: "20px",
+              color: "white",
+              fontWeight: "bold",
+            }}
             href="/login"
           >
-            <items>Login</items>
+            <items>LOGIN</items>
           </Link>
         )}
       </Menu>

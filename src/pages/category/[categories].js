@@ -26,7 +26,7 @@ export default CategoryPage;
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `http://localhost:5000/api/v1/products/category/${params.categories}`
+    `https://pc-builder-ruby.vercel.app/api/v1/products/category/${params.categories}`
   );
   const data = await res.json();
   return {
@@ -38,7 +38,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:5000/api/v1/products`);
+  const res = await fetch(`https://pc-builder-ruby.vercel.app/api/v1/products`);
   const data = await res.json();
   const paths = data?.map((category) => ({
     params: { categories: category?.toString() },
