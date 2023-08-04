@@ -87,7 +87,7 @@ export default ProductDetail;
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `https://pc-builder-ruby.vercel.app/api/v1/products/${params.productId}`
+    `http://localhost:5000/api/v1/products/${params.productId}`
   );
   const data = await res.json();
   console.log(data, "from dynamic route");
@@ -101,7 +101,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`https://pc-builder-ruby.vercel.app/api/v1/products`);
+  const res = await fetch(`http://localhost:5000/api/v1/products`);
   const data = await res.json();
   const paths = data.map((product) => ({
     params: { productId: product._id.toString() },

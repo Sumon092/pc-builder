@@ -2,7 +2,6 @@ import { Layout, Menu, Button } from "antd";
 const { Header } = Layout;
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import CategoryDropdown from "../DropdownCategory";
 import DropdownCategory from "../DropdownCategory";
 
 const Navbar = () => {
