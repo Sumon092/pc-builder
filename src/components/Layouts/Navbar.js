@@ -12,11 +12,12 @@ const Navbar = () => {
       style={{
         display: "flex",
         justifyContent: "space-between",
+        backgroundColor: "navy",
       }}
     >
       <div className="demo-logo">
         <Link
-          style={{ marginRight: "15px" }}
+          style={{ marginRight: "15px", backgroundColor: "navy" }}
           href="/"
           className={styles.navLink}
         >
@@ -27,23 +28,23 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <Menu theme="dark" mode="horizontal">
+      <Menu style={{ backgroundColor: "navy" }} mode="horizontal">
         <Link
-          style={{ marginRight: "15px" }}
+          style={{ marginRight: "15px", backgroundColor: "navy" }}
           className={styles.navLink}
           href="/pc-builder"
         >
-          <items>PC BUILDER</items>
+          <items className={styles.navLink}>PC BUILDER</items>
         </Link>
         {session?.user ? (
           <items className={styles.navLink}>
             <Button onClick={() => signOut()} type="primary" danger>
-              Logout
+              LOGOUT
             </Button>
           </items>
         ) : (
           <Link className={styles.navLink} href="/login">
-            <items>LOGIN</items>
+            <items className={styles.navLink}>LOGIN</items>
           </Link>
         )}
       </Menu>
