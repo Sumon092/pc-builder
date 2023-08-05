@@ -38,7 +38,7 @@ const ProductDetail = ({ product }) => {
             width: "100%",
             color: "gray",
             margin: "10px 0px",
-            fontSize: "12px",
+            fontSize: "15px",
           }}
         >
           <span>
@@ -59,25 +59,25 @@ const ProductDetail = ({ product }) => {
             Average Rating: {product?.averageRating}
           </span>
         </p>
-        <p style={{ marginBottom: "0px" }}>Key Features</p>
+        <p style={{ marginBottom: "0px", fontSeize: "20px" }}>Key Features</p>
         <hr />
-        <p style={{ fontSize: "12px" }}>
+        <p style={{ fontSize: "15px" }}>
           Brand Name: {product?.keyFeatures?.brand}
         </p>
-        <p style={{ fontSize: "12px" }}>Model: {product?.keyFeatures?.model}</p>
-        <p style={{ fontSize: "12px" }}>
+        <p style={{ fontSize: "15px" }}>Model: {product?.keyFeatures?.model}</p>
+        <p style={{ fontSize: "15px" }}>
           Specification:
           {product?.keyFeatures?.specification}
         </p>
-        <p style={{ fontSize: "12px" }}>
+        <p style={{ fontSize: "15px" }}>
           Port:
           {product?.keyFeatures?.port}
         </p>
-        <p style={{ fontSize: "12px" }}>
+        <p style={{ fontSize: "15px" }}>
           voltage : {product?.keyFeatures?.voltage}
         </p>
-        <p style={{ fontSize: "12px" }}>Description: {product?.description}</p>
-        <p style={{ fontSize: "12px" }}>Reviews: {product?.reviews}</p>
+        <p style={{ fontSize: "15px" }}>Description: {product?.description}</p>
+        <p style={{ fontSize: "15px" }}>Reviews: {product?.reviews}</p>
       </Col>
     </Row>
   );
@@ -87,7 +87,7 @@ export default ProductDetail;
 export const getStaticProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `http://localhost:5000/api/v1/products/${params.productId}`
+    `https://pc-builder-ruby.vercel.app/api/v1/products/${params.productId}`
   );
   const data = await res.json();
   console.log(data, "from dynamic route");
@@ -101,7 +101,7 @@ export const getStaticProps = async (context) => {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`http://localhost:5000/api/v1/products`);
+  const res = await fetch(`https://pc-builder-ruby.vercel.app/api/v1/products`);
   const data = await res.json();
   const paths = data.map((product) => ({
     params: { productId: product._id.toString() },

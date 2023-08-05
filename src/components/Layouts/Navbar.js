@@ -1,8 +1,9 @@
 import { Layout, Menu, Button } from "antd";
 const { Header } = Layout;
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import DropdownCategory from "../DropdownCategory";
+import styles from "../../styles/Navbar.module.css";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -13,70 +14,35 @@ const Navbar = () => {
         justifyContent: "space-between",
       }}
     >
-      <div style={{ marginRight: "20px" }} className="demo-logo">
+      <div className="demo-logo">
         <Link
+          style={{ marginRight: "15px" }}
           href="/"
-          style={{
-            textDecoration: "none",
-            fontSize: "20px",
-            color: "white",
-            fontWeight: "bold",
-          }}
+          className={styles.navLink}
         >
           PC RELATIONS
         </Link>
-        <span
-          style={{
-            marginLeft: "20px",
-          }}
-        >
+        <Link href="" className={styles.navLink}>
           <DropdownCategory />
-        </span>
+        </Link>
       </div>
-      <Menu
-        theme="dark"
-        mode="horizontal"
-        style={{
-          width: "20%",
-          display: "flex",
-          fontSize: "20px",
-          justifyContent: "space-between",
-        }}
-      >
+
+      <Menu theme="dark" mode="horizontal">
         <Link
-          style={{
-            textDecoration: "none",
-            fontSize: "20px",
-            color: "white",
-            fontWeight: "bold",
-          }}
+          style={{ marginRight: "15px" }}
+          className={styles.navLink}
           href="/pc-builder"
         >
           <items>PC BUILDER</items>
         </Link>
         {session?.user ? (
-          <items
-            style={{
-              textDecoration: "none",
-              fontSize: "20px",
-              color: "white",
-              fontWeight: "bold",
-            }}
-          >
+          <items className={styles.navLink}>
             <Button onClick={() => signOut()} type="primary" danger>
               Logout
             </Button>
           </items>
         ) : (
-          <Link
-            style={{
-              textDecoration: "none",
-              fontSize: "20px",
-              color: "white",
-              fontWeight: "bold",
-            }}
-            href="/login"
-          >
+          <Link className={styles.navLink} href="/login">
             <items>LOGIN</items>
           </Link>
         )}
