@@ -90,8 +90,6 @@ export const getStaticProps = async (context) => {
     `https://pc-builder-ruby.vercel.app/api/v1/products/${params.productId}`
   );
   const data = await res.json();
-  console.log(data, "from dynamic route");
-
   return {
     props: {
       product: data,
