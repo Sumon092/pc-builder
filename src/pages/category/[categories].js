@@ -7,6 +7,7 @@ const CategoryPage = ({ product }) => {
   const router = useRouter();
   const { categories } = router.query;
   const filteredCategory = product.filter((p) => p.category === categories);
+  
   return (
     <div>
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>

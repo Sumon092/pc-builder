@@ -2,6 +2,7 @@ import styles from "../../styles/pcbuilder.module.css";
 import { Button } from "antd";
 import Icons from "../../assets/icons/icons8-processor-64.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const PcBuilderPage = ({ products }) => {
   const items = products?.map((product) => product.products[0]);
@@ -15,12 +16,23 @@ const PcBuilderPage = ({ products }) => {
             <span className={styles.itemLabel}>{item.category}</span>
           </div>
           <div>
-            <Button className={styles.buttonContainer}>SELECT</Button>
+            <Link
+              href={{
+                pathname: `/pc-builder/[category]`,
+                query: {
+                  products: JSON.stringify(products),
+                  category: item.category,
+                },
+              }}
+              as={`/pc-builder/${item.category}`}
+            >
+              <Button className={styles.buttonContainer}>SELECT</Button>
+            </Link>
           </div>
         </div>
       ))}
       <div style={{ margin: "15px 0px" }}>
-        <Button className={styles.buttonContainer}>Add To Pc Builder</Button>
+        <Button className={styles.buttonContainer}>COMPLETE BUILD</Button>
       </div>
     </div>
   );

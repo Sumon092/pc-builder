@@ -8,8 +8,12 @@ import {
   StarOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Category = ({ filteredCategory }) => {
+  const router = useRouter();
+  const { categoryProduct } = router.query;
+
   const { Meta } = Card;
   return (
     <>
@@ -74,23 +78,44 @@ const Category = ({ filteredCategory }) => {
               <p style={{ display: "block" }}>
                 <StarOutlined /> {product?.personalRating}
               </p>
-              <Link href={`/product/${product?._id}`}>
-                <p
-                  style={{
-                    fontSize: "15px",
-                    marginTop: "20px",
-                    backgroundColor: "navy",
-                    color: "white",
-                    width: "100%",
-                    padding: "2px 5px ",
-                    fontWeight: "300",
-                    letterSpacing: "3px",
-                    textAlign: "center",
-                  }}
-                >
-                  Show Details <ArrowRightOutlined />
-                </p>
-              </Link>
+              {!categoryProduct ? (
+                <Link href={`/product/${product?._id}`}>
+                  <p
+                    style={{
+                      fontSize: "15px",
+                      marginTop: "20px",
+                      backgroundColor: "navy",
+                      color: "white",
+                      width: "100%",
+                      padding: "2px 5px ",
+                      fontWeight: "300",
+                      letterSpacing: "3px",
+                      textAlign: "center",
+                    }}
+                  >
+                    Show Details <ArrowRightOutlined />
+                  </p>
+                </Link>
+              ) : (
+                <Link href={``}>
+                  <p
+                    style={{
+                      fontSize: "15px",
+                      marginTop: "20px",
+                      backgroundColor: "navy",
+                      color: "white",
+                      width: "100%",
+                      padding: "2px 5px ",
+                      fontWeight: "300",
+                      letterSpacing: "3px",
+                      textAlign: "center",
+                    }}
+                  >
+                    Add To Builder
+                    <ArrowRightOutlined />
+                  </p>
+                </Link>
+              )}
             </Card>
           </Col>
         ))}
