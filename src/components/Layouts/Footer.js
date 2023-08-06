@@ -7,7 +7,9 @@ const Footer = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "80px",
+        height: "60px",
+        background: "navy",
+        color: "white",
       }}
     >
       <h4>All rights reserved pc builder ©2023</h4>
