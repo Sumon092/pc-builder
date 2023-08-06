@@ -3,7 +3,7 @@ import { Button } from "antd";
 import Icons from "../../assets/icons/icons8-processor-64.png";
 import Image from "next/image";
 import Link from "next/link";
-import { useProductContext } from "../context/ProductContext";
+import { useProductContext } from "../../context/ProductContext";
 
 const PcBuilderPage = ({ products }) => {
   const items = products?.map((product) => product.products[0]);
@@ -82,7 +82,11 @@ const PcBuilderPage = ({ products }) => {
             COMPLETE BUILD
           </Button>
         ) : (
-          <Button className={styles.buttonContainer} disabled>
+          <Button
+            style={{ background: "yellow" }}
+            className={styles.buttonContainer}
+            disabled
+          >
             COMPLETE BUILD
           </Button>
         )}

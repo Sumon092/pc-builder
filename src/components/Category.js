@@ -8,7 +8,7 @@ import {
   StarOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
-import { useProductContext } from "@/pages/context/ProductContext";
+import { useProductContext } from "@/context/ProductContext";
 
 const Category = ({ filteredCategory, categoryProduct }) => {
   const { addProduct } = useProductContext();
