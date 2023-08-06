@@ -8,6 +8,7 @@
 import "@/styles/globals.css";
 import Navbar from "../components/Layouts/Navbar";
 import { SessionProvider } from "next-auth/react";
+import { ProductProvider } from "./context/ProductContext";
 export default function App({
   Component,
   pageProps: { session, ...pageProps },
@@ -15,10 +16,12 @@ export default function App({
   return (
     <>
       <SessionProvider session={session}>
-        <Navbar />
-        <div style={{ padding: "24px" }}>
-          <Component {...pageProps} />
-        </div>
+        <ProductProvider>
+          <Navbar />
+          <div style={{ padding: "24px" }}>
+            <Component {...pageProps} />
+          </div>
+        </ProductProvider>
       </SessionProvider>
     </>
   );

@@ -8,11 +8,35 @@ import {
   StarOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useProductContext } from "@/pages/context/ProductContext";
 
-const Category = ({ filteredCategory }) => {
-  const router = useRouter();
-  const { categoryProduct } = router.query;
+const Category = ({ filteredCategory, categoryProduct }) => {
+  const { addProduct } = useProductContext();
+
+  const handleAddToBuilder = (product) => {
+    addProduct(product);
+  };
+
+  // const router = useRouter();
+  // const { categoryProduct } = router.query;
+  // const [categoryProducts, setCategoryProducts] = useState([]);
+  // useEffect(() => {
+  //   if (selectedProducts) {
+  //     setCategoryProducts(JSON.parse(selectedProducts));
+  //   }
+  // }, [selectedProducts]);
+
+  // const handleAddToBuilder = (product) => {
+  //   const updatedProducts = [...categoryProducts, product];
+  //   setCategoryProducts(updatedProducts);
+  //   router.push({
+  //     pathname: "/pc-builder",
+  //     query: {
+  //       ...router.query,
+  //       selectedProducts: JSON.stringify(updatedProducts),
+  //     },
+  //   });
+  // };
 
   const { Meta } = Card;
   return (
@@ -97,7 +121,10 @@ const Category = ({ filteredCategory }) => {
                   </p>
                 </Link>
               ) : (
-                <Link href={``}>
+                <Link
+                  href="/pc-builder"
+                  onClick={() => handleAddToBuilder(product)}
+                >
                   <p
                     style={{
                       fontSize: "15px",
