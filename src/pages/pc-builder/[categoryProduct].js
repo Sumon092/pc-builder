@@ -13,7 +13,10 @@ const PcBuilderCategory = ({ products }) => {
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
         Choose Your {categoryProduct} Here
       </h2>
-      <Category categoryProduct={categoryProduct}  filteredCategory={filteredCategory}></Category>
+      <Category
+        categoryProduct={categoryProduct}
+        filteredCategory={filteredCategory}
+      ></Category>
     </div>
   );
 };
@@ -22,7 +25,7 @@ export default PcBuilderCategory;
 export const getServerSideProps = async (context) => {
   const { params } = context;
   const res = await fetch(
-    `http://localhost:5000/api/v1/products/category/${params.categoryProduct}`
+    `https://pc-builder-ruby.vercel.app/api/v1/products/category/${params.categoryProduct}`
   );
   const data = await res.json();
   return {

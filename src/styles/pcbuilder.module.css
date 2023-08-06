@@ -41,9 +41,29 @@
   align-items: center;
   background: navy;
 }
+.removeButton {
+  border: none;
+  background: none;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+}
 
 .buttonContainer:hover {
-  background-color: crimson;
+  background-color: blue;
   color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.completeBuildButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
 }
