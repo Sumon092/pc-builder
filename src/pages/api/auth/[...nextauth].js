@@ -15,7 +15,7 @@ export const authOptions = {
     }),
   ],
   pages: {
-    signIn: "/https://pc-builders.vercel.app/login",
+    signIn: "https://pc-builders.vercel.app/login",
   },
 };
 

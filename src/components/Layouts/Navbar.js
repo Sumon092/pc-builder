@@ -43,7 +43,10 @@ const Navbar = () => {
             </Button>
           </items>
         ) : (
-          <Link className={styles.navLink} href="/login">
+          <Link
+            className={styles.navLink}
+            href="/login"
+          >
             <items className={styles.navLink}>LOGIN</items>
           </Link>
         )}
