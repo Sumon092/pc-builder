@@ -16,28 +16,6 @@ const Category = ({ filteredCategory, categoryProduct }) => {
   const handleAddToBuilder = (product) => {
     addProduct(product);
   };
-
-  // const router = useRouter();
-  // const { categoryProduct } = router.query;
-  // const [categoryProducts, setCategoryProducts] = useState([]);
-  // useEffect(() => {
-  //   if (selectedProducts) {
-  //     setCategoryProducts(JSON.parse(selectedProducts));
-  //   }
-  // }, [selectedProducts]);
-
-  // const handleAddToBuilder = (product) => {
-  //   const updatedProducts = [...categoryProducts, product];
-  //   setCategoryProducts(updatedProducts);
-  //   router.push({
-  //     pathname: "/pc-builder",
-  //     query: {
-  //       ...router.query,
-  //       selectedProducts: JSON.stringify(updatedProducts),
-  //     },
-  //   });
-  // };
-
   const { Meta } = Card;
   return (
     <>

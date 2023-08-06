@@ -9,12 +9,11 @@ import { useProductContext } from "../context/ProductContext";
 
 const PcBuilderPage = ({ products }) => {
   const items = products?.map((product) => product.products[0]);
-  const { selectedProducts } = useProductContext();
-
+  const { selectedProducts, removeProduct } = useProductContext();
+  console.log(selectedProducts, "selected product");
   return (
     <div className={styles.pcBuilder}>
       <h1 style={{ marginBottom: "25px" }}>Build your own pc</h1>
-
       {items?.map((item) => (
         <div key={item._id} className={styles.content}>
           <div className={styles.itemContainer}>
@@ -22,9 +21,29 @@ const PcBuilderPage = ({ products }) => {
             <span className={styles.itemLabel}>{item.category}</span>
           </div>
           <div>
-            <Link href={`/pc-builder/${item.category}`}>
-              <Button className={styles.buttonContainer}>Select</Button>
-            </Link>
+            <div>
+              {selectedProducts.some((product) => product._id === item._id) ? (
+                <div>
+                  <Image
+                    src={item?.image}
+                    width={55}
+                    height={35}
+                    responsive
+                    alt={item.category}
+                  />
+                  <p>{item.category}</p>
+                  <p>{item?.keyFeatures.model}</p>
+                  <p>Price: {item?.price} $</p>
+                  <Button onClick={() => removeProduct(item._id)}>
+                    Remove
+                  </Button>
+                </div>
+              ) : (
+                <Link href={`/pc-builder/${item.category}`}>
+                  <Button className={styles.buttonContainer}>Select</Button>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       ))}
@@ -32,31 +51,6 @@ const PcBuilderPage = ({ products }) => {
         <Button className={styles.buttonContainer}>COMPLETE BUILD</Button>
       </div>
     </div>
-    // <div className={styles.pcBuilder}>
-    //   <h1 style={{ marginBottom: "25px" }}>Build your own pc</h1>
-    //   {!selected ? (
-    //     <div>
-    //       {items?.map((item) => (
-    //         <div key={item._id} className={styles.content}>
-    //           <div className={styles.itemContainer}>
-    //             <Image src={Icons} alt={item.category} />
-    //             <span className={styles.itemLabel}>{item.category}</span>
-    //           </div>
-    //           <div>
-    //             <Link href={`/pc-builder/${item.category}`}>
-    //               <Button className={styles.buttonContainer}>SELECT</Button>
-    //             </Link>
-    //           </div>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   ) : (
-    //     <div></div>
-    //   )}
-    //   <div style={{ margin: "15px 0px" }}>
-    //     <Button className={styles.buttonContainer}>COMPLETE BUILD</Button>
-    //   </div>
-    // </div>
   );
 };
 
