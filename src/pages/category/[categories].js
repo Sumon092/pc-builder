@@ -37,7 +37,6 @@ export const getStaticProps = async (context) => {
     revalidate: 60 * 60,
   };
 };
-
 export const getStaticPaths = async () => {
   const res = await fetch(`https://pc-builder-ruby.vercel.app/api/v1/products`);
   const data = await res.json();
