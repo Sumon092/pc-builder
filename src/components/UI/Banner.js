@@ -1,10 +1,10 @@
 import { Col, Row, Carousel } from "antd";
-import styles from "../styles/banner.module.css";
+import styles from "@/styles/banner.module.css";
 import Image from "next/image";
-import Banner1 from "../assets/images/banner1.png";
+import Banner1 from "../../assets/images/Banner1.png";
 import Banner2 from "@/assets/images/banner2.jpg";
-import SideImage1 from "../assets/images/side1.png";
-import SideImage2 from "../assets/images/side2.png";
+import SideImage1 from "@/assets/images/side1.png";
+import SideImage2 from "@/assets/images/side2.png";
 
 const contentStyle = {
   height: "425px",

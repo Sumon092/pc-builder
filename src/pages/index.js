@@ -1,4 +1,4 @@
-import Banner from "@/UI/Banner";
+import Banner from "@/components/UI/Banner";
 import Categories from "@/components/Categories";
 import Features from "@/components/Features";
 import React from "react";
@@ -7,7 +7,7 @@ const HomePage = ({ products }) => {
   const product = products?.map((category) => category.products[0]);
   return (
     <>
-      <Banner/>
+      <Banner />
       <Categories
         key={product._id}
         products={product}
@@ -20,7 +20,7 @@ const HomePage = ({ products }) => {
 
 export default HomePage;
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products");
+  const res = await fetch("https://pc-builder-ruby.vercel.app/api/v1/products");
   const data = await res.json();
   return {
     props: {
