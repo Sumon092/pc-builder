@@ -1,0 +1,31 @@
+.bannerContainer {
+  min-width: 75vh;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+.leftBanner {
+  width: 67%;
+}
+.rightBanner {
+  margin: 0;
+  padding: 0;
+  width: 33%;
+  margin-left: 4px;
+  height: 100%;
+}
+.imageContainerTop {
+  margin-top: 0px;
+  padding: 0px;
+  height: 50%;
+  width: 100%;
+}
+.imageContainerBottom {
+  display: block;
+  margin-top: 7px;
+  padding: 0px;
+  height: 50%;
+  width: 100%;
+}

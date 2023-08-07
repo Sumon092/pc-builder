@@ -16,9 +16,7 @@ const DropdownCategory = () => {
   }, [menuVisible, menuData]);
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        "https://pc-builder-ruby.vercel.app/api/v1/products"
-      );
+      const response = await fetch("http://localhost:5000/api/v1/products");
       const data = await response.json();
       const products = data.map((d) => d.products[0]);
       const productCategories = products.map((category) => ({

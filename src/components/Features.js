@@ -16,11 +16,14 @@ const Features = ({ products }) => {
       <h2
         style={{
           textAlign: "center",
-          fontSize: "40px",
+          fontSize: "35px",
           margin: "30px 0px",
+          fontWeight: "bold",
+          fontFamily: "cursive",
+          color: "navy",
         }}
       >
-        Explore Products
+        FIND CATEGORIES
       </h2>
       <Row
         gutter={{

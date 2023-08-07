@@ -7,13 +7,21 @@ const Categories = ({ products }) => {
     <>
       <div
         style={{
-          border: "1px solid black",
+          border: "1px solid navy",
           padding: "10px",
           marginTop: "10px",
         }}
       >
-        <span style={{ marginRight: "20px", fontSize: "20px" }}>
-          Featured Products:
+        <span
+          style={{
+            marginRight: "20px",
+            fontSize: "20px",
+            fontWeight: "bold",
+            color: "navy",
+            fontFamily: "cursive",
+          }}
+        >
+          FEATURED PRODUCTS:
         </span>
         {products.map((category) => (
           <Link key={category._id} href={`/category/${category.category}`}>
