@@ -38,20 +38,19 @@ const Banner = () => (
         </Carousel>
       </div>
       <div className={styles.rightBanner}>
-        <div>
-          <Image
-            className={styles.imageContainerTop}
-            responsive="true"
-            src={SideImage2}
-            alt=""
-          />
-        </div>
+        <Image
+          className={styles.imageContainerTop}
+          src={SideImage2}
+          alt=""
+          style={{ marginTop: "5px" }}
+        />
 
         <Image
           className={styles.imageContainerBottom}
           responsive="true"
           src={SideImage1}
           alt=""
+          style={{ marginRight: "5px" }}
         />
       </div>
     </div>

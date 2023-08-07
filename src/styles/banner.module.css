@@ -1,8 +1,8 @@
 .bannerContainer {
   min-width: 75vh;
   display: flex;
-  justify-content: space-between; 
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
   margin-bottom: 24px;
 }
@@ -28,4 +28,58 @@
   padding: 0px;
   height: 50%;
   width: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .bannerContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .leftBanner {
+    width: 100%;
+  }
+
+  .rightBanner {
+    padding: 0px;
+    margin-right: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageContainerTop,
+  .imageContainerBottom {
+    display: block;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .bannerContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  .leftBanner {
+    width: 100%;
+  }
+
+  .rightBanner {
+    padding: 0px;
+    margin-right: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageContainerTop,
+  .imageContainerBottom {
+    display: block;
+    width: 50%;
+  }
 }
