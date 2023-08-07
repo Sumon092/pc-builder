@@ -1,10 +1,21 @@
-import { Button } from "antd";
+import { Button, Row, Col } from "antd";
 import Link from "next/link";
 import React from "react";
 
 const Categories = ({ products }) => {
   return (
     <>
+      <span
+        style={{
+          marginRight: "20px",
+          fontSize: "20px",
+          fontWeight: "bold",
+          color: "navy",
+          fontFamily: "cursive",
+        }}
+      >
+        FEATURED PRODUCTS:
+      </span>
       <div
         style={{
           border: "1px solid navy",
@@ -12,24 +23,20 @@ const Categories = ({ products }) => {
           marginTop: "10px",
         }}
       >
-        <span
-          style={{
-            marginRight: "20px",
-            fontSize: "20px",
-            fontWeight: "bold",
-            color: "navy",
-            fontFamily: "cursive",
-          }}
-        >
-          FEATURED PRODUCTS:
-        </span>
-        {products.map((category) => (
-          <Link key={category._id} href={`/category/${category.category}`}>
-            <Button type="primary" style={{ marginRight: "10px" }}>
-              {category?.category}
-            </Button>
-          </Link>
-        ))}
+        <Row gutter={16}>
+          {products.map((category) => (
+            <Col key={category._id} xs={24} sm={12} md={8} lg={6}>
+              <Link href={`/category/${category.category}`}>
+                <Button
+                  type="primary"
+                  style={{ marginBottom: "5px", width: "100%" }}
+                >
+                  {category?.category}
+                </Button>
+              </Link>
+            </Col>
+          ))}
+        </Row>
       </div>
     </>
   );

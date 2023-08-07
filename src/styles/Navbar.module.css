@@ -5,3 +5,15 @@
   color: white;
   background-color: navy;
 }
+
+@media screen and (max-width: 767px) {
+  .navMenu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navLink {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
